@@ -11,7 +11,7 @@ export default class TableHead extends React.Component{
 			<thead className="table-head">
 				<tr>
 					<th className="col1">#</th>
-					<th className="col2">Camper Name</th>
+					<th className="col2">Camper</th>
 					<th className="col3"><a href="#" onClick={this.props.recent}>Points in past 30 days</a></th>
 					<th className="col4"><a href="#" onClick={this.props.allTime}>All Time Points</a></th>
 				</tr>
