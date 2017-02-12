@@ -1,11 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-
 import './scss/application.scss';
-
 import TableHead from './components/TableHead.jsx';
 import TableBody from './components/TableBody.jsx';
+import axios from 'axios';
 
 
 class Application extends React.Component{
@@ -17,22 +15,18 @@ class Application extends React.Component{
 	}
 
 	recent() {
-		return fetch('https://fcctop100.herokuapp.com/api/fccusers/top/recent')
-				.then((response) => response.json())
-				.then((response) => this.setState({
-					data: response
-				}));
+		return axios.get('https://fcctop100.herokuapp.com/api/fccusers/top/recent')
+				.then(response => this.setState({ data: response.data }))
+				.catch(error => console.log(error))
 	}
 
 	allTime() {
-		return fetch('https://fcctop100.herokuapp.com/api/fccusers/top/alltime')
-				.then((response) => response.json())
-				.then((response) => this.setState({
-					data: response
-				}));
+		return axios.get('https://fcctop100.herokuapp.com/api/fccusers/top/alltime')
+				.then(response => this.setState({ data: response.data }))
+				.catch(error => console.log(error))
 	}
 
-	componentWillMount() {
+	componentDidMount() {
 		this.recent();		
 	}
 
