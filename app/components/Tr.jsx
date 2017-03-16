@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 
 
- const Tr = props => {
-			
+ const Tr = props => {			
 	return (
 		<tr>
 			<td className="col1">{props.index + 1}</td>
@@ -12,6 +11,17 @@ import React from 'react';
 		</tr>
 	)
 	
+}
+
+React.propTypes = {
+	index: PropTypes.number.isRequired,
+	data: PropTypes.shape({
+		img: PropTypes.string.isRequired,
+		username: PropTypes.string.isRequired,
+		recent: PropTypes.number.isRequired,
+		alltime: PropTypes.number.isRequired
+	}).isRequired,
+
 }
 
 export default Tr;

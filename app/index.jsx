@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './scss/application.scss';
 import TableHead from './components/TableHead.jsx';
-import TableBody from './components/TableBody.jsx';
+import Tr from './components/Tr.jsx';
 import axios from 'axios';
 
 
@@ -32,11 +32,15 @@ class Application extends React.Component{
 
 
 	render() {
+		let tr = this.state.data.map((obj, index) => <Tr key={index} index={index} data={obj}/> )
+
 		return (
 			<div className="main">
 				<table>
 					<TableHead recent={this.recent.bind(this)} allTime={this.allTime.bind(this)}/>
-					<TableBody data={this.state.data}/>
+					<tbody>
+						{tr}
+					</tbody>
 				</table>
 				
 			</div>
