@@ -62,11 +62,11 @@
 
 	var _TableHead2 = _interopRequireDefault(_TableHead);
 
-	var _TableBody = __webpack_require__(183);
+	var _Tr = __webpack_require__(183);
 
-	var _TableBody2 = _interopRequireDefault(_TableBody);
+	var _Tr2 = _interopRequireDefault(_Tr);
 
-	var _axios = __webpack_require__(185);
+	var _axios = __webpack_require__(184);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
@@ -122,6 +122,10 @@
 		}, {
 			key: 'render',
 			value: function render() {
+				var tr = this.state.data.map(function (obj, index) {
+					return _react2.default.createElement(_Tr2.default, { key: index, index: index, data: obj });
+				});
+
 				return _react2.default.createElement(
 					'div',
 					{ className: 'main' },
@@ -129,7 +133,11 @@
 						'table',
 						null,
 						_react2.default.createElement(_TableHead2.default, { recent: this.recent.bind(this), allTime: this.allTime.bind(this) }),
-						_react2.default.createElement(_TableBody2.default, { data: this.state.data })
+						_react2.default.createElement(
+							'tbody',
+							null,
+							tr
+						)
 					)
 				);
 			}
@@ -21932,122 +21940,61 @@
 		value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var TableHead = function (_React$Component) {
-		_inherits(TableHead, _React$Component);
-
-		function TableHead(props) {
-			_classCallCheck(this, TableHead);
-
-			return _possibleConstructorReturn(this, (TableHead.__proto__ || Object.getPrototypeOf(TableHead)).call(this, props));
-		}
-
-		_createClass(TableHead, [{
-			key: "render",
-			value: function render() {
-				return _react2.default.createElement(
-					"thead",
-					{ className: "table-head" },
-					_react2.default.createElement(
-						"tr",
-						null,
-						_react2.default.createElement(
-							"th",
-							{ className: "col1" },
-							"#"
-						),
-						_react2.default.createElement(
-							"th",
-							{ className: "col2" },
-							"Camper"
-						),
-						_react2.default.createElement(
-							"th",
-							{ className: "col3" },
-							_react2.default.createElement(
-								"a",
-								{ href: "#", onClick: this.props.recent },
-								"Points in past 30 days"
-							)
-						),
-						_react2.default.createElement(
-							"th",
-							{ className: "col4" },
-							_react2.default.createElement(
-								"a",
-								{ href: "#", onClick: this.props.allTime },
-								"All Time Points"
-							)
-						)
-					)
-				);
-			}
-		}]);
-
-		return TableHead;
-	}(_react2.default.Component);
-
-	exports.default = TableHead;
-
-
-	TableHead.propTypes = {
-		recent: _react2.default.PropTypes.func.isRequired,
-		allTime: _react2.default.PropTypes.func.isRequired
-	};
-
-/***/ },
-/* 183 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _Tr = __webpack_require__(184);
-
-	var _Tr2 = _interopRequireDefault(_Tr);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var TableBody = function TableBody(props) {
-
-		var tr = props.data.map(function (obj, index) {
-			return _react2.default.createElement(_Tr2.default, { key: index,
-				index: index,
-				data: obj
-			});
-		});
+	var TableHead = function TableHead(props) {
 
 		return _react2.default.createElement(
-			'tbody',
-			null,
-			tr
+			"thead",
+			{ className: "table-head" },
+			_react2.default.createElement(
+				"tr",
+				null,
+				_react2.default.createElement(
+					"th",
+					{ className: "col1" },
+					"#"
+				),
+				_react2.default.createElement(
+					"th",
+					{ className: "col2" },
+					"Camper"
+				),
+				_react2.default.createElement(
+					"th",
+					{ className: "col3" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: props.recent },
+						"Points in past 30 days"
+					)
+				),
+				_react2.default.createElement(
+					"th",
+					{ className: "col4" },
+					_react2.default.createElement(
+						"a",
+						{ href: "#", onClick: props.allTime },
+						"All Time Points"
+					)
+				)
+			)
 		);
 	};
 
-	exports.default = TableBody;
+	TableHead.propTypes = {
+		recent: _react.PropTypes.func.isRequired,
+		allTime: _react.PropTypes.func.isRequired
+	};
+
+	exports.default = TableHead;
 
 /***/ },
-/* 184 */
+/* 183 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -22063,7 +22010,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var Tr = function Tr(props) {
-
 		return _react2.default.createElement(
 			"tr",
 			null,
@@ -22095,24 +22041,35 @@
 		);
 	};
 
+	_react2.default.propTypes = {
+		index: _react.PropTypes.number.isRequired,
+		data: _react.PropTypes.shape({
+			img: _react.PropTypes.string.isRequired,
+			username: _react.PropTypes.string.isRequired,
+			recent: _react.PropTypes.number.isRequired,
+			alltime: _react.PropTypes.number.isRequired
+		}).isRequired
+
+	};
+
 	exports.default = Tr;
+
+/***/ },
+/* 184 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = __webpack_require__(185);
 
 /***/ },
 /* 185 */
 /***/ function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(186);
-
-/***/ },
-/* 186 */
-/***/ function(module, exports, __webpack_require__) {
-
 	'use strict';
 
-	var utils = __webpack_require__(187);
-	var bind = __webpack_require__(188);
-	var Axios = __webpack_require__(189);
-	var defaults = __webpack_require__(190);
+	var utils = __webpack_require__(186);
+	var bind = __webpack_require__(187);
+	var Axios = __webpack_require__(188);
+	var defaults = __webpack_require__(189);
 
 	/**
 	 * Create an instance of Axios
@@ -22145,15 +22102,15 @@
 	};
 
 	// Expose Cancel & CancelToken
-	axios.Cancel = __webpack_require__(207);
-	axios.CancelToken = __webpack_require__(208);
-	axios.isCancel = __webpack_require__(204);
+	axios.Cancel = __webpack_require__(206);
+	axios.CancelToken = __webpack_require__(207);
+	axios.isCancel = __webpack_require__(203);
 
 	// Expose all/spread
 	axios.all = function all(promises) {
 	  return Promise.all(promises);
 	};
-	axios.spread = __webpack_require__(209);
+	axios.spread = __webpack_require__(208);
 
 	module.exports = axios;
 
@@ -22162,12 +22119,12 @@
 
 
 /***/ },
-/* 187 */
+/* 186 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var bind = __webpack_require__(188);
+	var bind = __webpack_require__(187);
 
 	/*global toString:true*/
 
@@ -22467,7 +22424,7 @@
 
 
 /***/ },
-/* 188 */
+/* 187 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22484,17 +22441,17 @@
 
 
 /***/ },
-/* 189 */
+/* 188 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var defaults = __webpack_require__(190);
-	var utils = __webpack_require__(187);
-	var InterceptorManager = __webpack_require__(201);
-	var dispatchRequest = __webpack_require__(202);
-	var isAbsoluteURL = __webpack_require__(205);
-	var combineURLs = __webpack_require__(206);
+	var defaults = __webpack_require__(189);
+	var utils = __webpack_require__(186);
+	var InterceptorManager = __webpack_require__(200);
+	var dispatchRequest = __webpack_require__(201);
+	var isAbsoluteURL = __webpack_require__(204);
+	var combineURLs = __webpack_require__(205);
 
 	/**
 	 * Create a new instance of Axios
@@ -22575,13 +22532,13 @@
 
 
 /***/ },
-/* 190 */
+/* 189 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(187);
-	var normalizeHeaderName = __webpack_require__(191);
+	var utils = __webpack_require__(186);
+	var normalizeHeaderName = __webpack_require__(190);
 
 	var PROTECTION_PREFIX = /^\)\]\}',?\n/;
 	var DEFAULT_CONTENT_TYPE = {
@@ -22598,10 +22555,10 @@
 	  var adapter;
 	  if (typeof XMLHttpRequest !== 'undefined') {
 	    // For browsers use XHR adapter
-	    adapter = __webpack_require__(192);
+	    adapter = __webpack_require__(191);
 	  } else if (typeof process !== 'undefined') {
 	    // For node use HTTP adapter
-	    adapter = __webpack_require__(192);
+	    adapter = __webpack_require__(191);
 	  }
 	  return adapter;
 	}
@@ -22675,12 +22632,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 191 */
+/* 190 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(187);
+	var utils = __webpack_require__(186);
 
 	module.exports = function normalizeHeaderName(headers, normalizedName) {
 	  utils.forEach(headers, function processHeader(value, name) {
@@ -22693,18 +22650,18 @@
 
 
 /***/ },
-/* 192 */
+/* 191 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
-	var utils = __webpack_require__(187);
-	var settle = __webpack_require__(193);
-	var buildURL = __webpack_require__(196);
-	var parseHeaders = __webpack_require__(197);
-	var isURLSameOrigin = __webpack_require__(198);
-	var createError = __webpack_require__(194);
-	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(199);
+	var utils = __webpack_require__(186);
+	var settle = __webpack_require__(192);
+	var buildURL = __webpack_require__(195);
+	var parseHeaders = __webpack_require__(196);
+	var isURLSameOrigin = __webpack_require__(197);
+	var createError = __webpack_require__(193);
+	var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(198);
 
 	module.exports = function xhrAdapter(config) {
 	  return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -22800,7 +22757,7 @@
 	    // This is only done if running in a standard browser environment.
 	    // Specifically not if we're in a web worker, or react-native.
 	    if (utils.isStandardBrowserEnv()) {
-	      var cookies = __webpack_require__(200);
+	      var cookies = __webpack_require__(199);
 
 	      // Add xsrf header
 	      var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -22877,12 +22834,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 193 */
+/* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var createError = __webpack_require__(194);
+	var createError = __webpack_require__(193);
 
 	/**
 	 * Resolve or reject a Promise based on response status.
@@ -22908,12 +22865,12 @@
 
 
 /***/ },
-/* 194 */
+/* 193 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var enhanceError = __webpack_require__(195);
+	var enhanceError = __webpack_require__(194);
 
 	/**
 	 * Create an Error with the specified message, config, error code, and response.
@@ -22931,7 +22888,7 @@
 
 
 /***/ },
-/* 195 */
+/* 194 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -22956,12 +22913,12 @@
 
 
 /***/ },
-/* 196 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(187);
+	var utils = __webpack_require__(186);
 
 	function encode(val) {
 	  return encodeURIComponent(val).
@@ -23030,12 +22987,12 @@
 
 
 /***/ },
-/* 197 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(187);
+	var utils = __webpack_require__(186);
 
 	/**
 	 * Parse headers into an object
@@ -23073,12 +23030,12 @@
 
 
 /***/ },
-/* 198 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(187);
+	var utils = __webpack_require__(186);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -23147,7 +23104,7 @@
 
 
 /***/ },
-/* 199 */
+/* 198 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23189,12 +23146,12 @@
 
 
 /***/ },
-/* 200 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(187);
+	var utils = __webpack_require__(186);
 
 	module.exports = (
 	  utils.isStandardBrowserEnv() ?
@@ -23248,12 +23205,12 @@
 
 
 /***/ },
-/* 201 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(187);
+	var utils = __webpack_require__(186);
 
 	function InterceptorManager() {
 	  this.handlers = [];
@@ -23306,15 +23263,15 @@
 
 
 /***/ },
-/* 202 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(187);
-	var transformData = __webpack_require__(203);
-	var isCancel = __webpack_require__(204);
-	var defaults = __webpack_require__(190);
+	var utils = __webpack_require__(186);
+	var transformData = __webpack_require__(202);
+	var isCancel = __webpack_require__(203);
+	var defaults = __webpack_require__(189);
 
 	/**
 	 * Throws a `Cancel` if cancellation has been requested.
@@ -23391,12 +23348,12 @@
 
 
 /***/ },
-/* 203 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var utils = __webpack_require__(187);
+	var utils = __webpack_require__(186);
 
 	/**
 	 * Transform the data for a request or a response
@@ -23417,7 +23374,7 @@
 
 
 /***/ },
-/* 204 */
+/* 203 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23428,7 +23385,7 @@
 
 
 /***/ },
-/* 205 */
+/* 204 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23448,7 +23405,7 @@
 
 
 /***/ },
-/* 206 */
+/* 205 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23466,7 +23423,7 @@
 
 
 /***/ },
-/* 207 */
+/* 206 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -23491,12 +23448,12 @@
 
 
 /***/ },
-/* 208 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var Cancel = __webpack_require__(207);
+	var Cancel = __webpack_require__(206);
 
 	/**
 	 * A `CancelToken` is an object that can be used to request cancellation of an operation.
@@ -23554,7 +23511,7 @@
 
 
 /***/ },
-/* 209 */
+/* 208 */
 /***/ function(module, exports) {
 
 	'use strict';
