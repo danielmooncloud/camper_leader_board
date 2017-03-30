@@ -1,7 +1,7 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes} from "react";
 
 
- const TableHead = props => {
+const TableHead = props => {
 	
 	return (
 		<thead className="table-head">
@@ -12,12 +12,12 @@ import React, {PropTypes} from 'react';
 				<th className="col4"><a href="#" onClick={props.allTime}>All Time Points</a></th>
 			</tr>
 		</thead>
-	)
-}
+	);
+};
 
 TableHead.propTypes = {
 	recent: PropTypes.func.isRequired,
 	allTime: PropTypes.func.isRequired
-}
+};
 
 export default TableHead;

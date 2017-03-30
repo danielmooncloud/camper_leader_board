@@ -1,7 +1,7 @@
-import React, {PropTypes} from 'react';
+import React, {PropTypes} from "react";
 
 
- const Tr = props => {			
+const Tr = props => {			
 	return (
 		<tr>
 			<td className="col1">{props.index + 1}</td>
@@ -9,9 +9,8 @@ import React, {PropTypes} from 'react';
 			<td className="col3">{props.data.recent}</td>
 			<td className="col4">{props.data.alltime}</td>
 		</tr>
-	)
-	
-}
+	);
+};
 
 React.propTypes = {
 	index: PropTypes.number.isRequired,
@@ -22,6 +21,6 @@ React.propTypes = {
 		alltime: PropTypes.number.isRequired
 	}).isRequired,
 
-}
+};
 
 export default Tr;
